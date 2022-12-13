@@ -247,40 +247,46 @@
 # i.test()
 
 
-# from selenium import webdriver
-# import time
-#
-# class frame():
-#     def test():
-#         driver = webdriver.Chrome("./driver/chromedriver.exe")
-#         driver.get("https://courses.letskodeit.com/practice")
-#         driver.maximize_window()
-#         driver.implicitly_wait(5)
-#
-#         driver.execute_script("window.scrollBy(0,1000);")
-#
-#         driver.switch_to.frame("courses-iframe")
-#
-#         driver.find_element("xpath",'//input[@name="course"]').send_keys("Java")
-#         driver.find_element("xpath",'//i[@class="fa fa-search"]').click()
-#
-#         parenthandle = driver.current_window_handle
-#         print("Parent window is:"+parenthandle)
-#
-#         driver.find_element("id","openwindow").click()
-#
-#         handles = driver.window_handles
-#
-#         for handle in handles:
-#             print("The handle is:" +handle)
-#         if handles not in parenthandle:
-#             driver.switch_to.window(handles)
-#             time.sleep(10)
-#         driver.switch_to.default_content()
-#         print("success")
-#
-# i = frame
-# i.test()
+from selenium import webdriver
+import time
+
+class frame():
+    def test():
+        driver = webdriver.Chrome("./driver/chromedriver.exe")
+        driver.get("https://courses.letskodeit.com/practice")
+        driver.maximize_window()
+        driver.implicitly_wait(5)
+
+        driver.execute_script("window.scrollBy(0,1000);")
+
+        driver.switch_to.frame("courses-iframe")
+
+        driver.find_element("xpath",'//input[@name="course"]').send_keys("JavaScript for beginners")
+        driver.find_element("xpath",'//i[@class="fa fa-search"]').click()
+        driver.find_element("xpath",'//img[@class = "img-responsive"]').click()
+        time.sleep(5)
+
+        driver.switch_to.default_content()
+        time.sleep(5)
+        print("success")
+
+        # parenthandle = driver.current_window_handle
+        # print("Parent window is:"+parenthandle)
+        #
+        # driver.find_element("id","openwindow").click()
+        #
+        # handles = driver.window_handles
+        #
+        # for handle in handles:
+        #     print("The handle is:" +handle)
+        # if handles not in parenthandle:
+        #     driver.switch_to.window(handles)
+        #     time.sleep(10)
+        # driver.switch_to.default_content()
+        # print("success")
+
+i = frame
+i.test()
 
 
 
