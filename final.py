@@ -231,35 +231,38 @@ from selenium.webdriver import ActionChains
 # m.SF()
 
 
-
-
 import time
 from selenium import webdriver
 
 
 class swicth:
-    def SF(self):
+    def RB(self):
         driver = webdriver.Chrome("./driver/chromedriver.exe")
         driver.get("https://jqueryui.com/checkboxradio/")
         driver.maximize_window()
+        driver.execute_script("window.scrollBy(0,700);")
 
         driver.switch_to.frame(0)
 
-        m = driver.find_elements("xpath",'//input[@name="radio-1"]/..//span[1]')
+        # m = driver.find_elements("xpath",'//input[@name="radio-1"]/..//span[1]')
+        m = driver.find_elements("xpath",'//input[@name="checkbox-1"]/..//span[1]')
         f = len(m)
         print(f)
 
-        for radiobutton in m:
-            sel = radiobutton.is_selected()cdcd
+        # for radiobutton in m:
+        for checkbox in m:
+            # sel = radiobutton.is_selected()
+            sel = checkbox.is_selected()
             print(sel)
             time.sleep(2)
 
             if not sel:
-                radiobutton.click()
+                checkbox.click()
+                time.sleep(2)
 
 
 i = swicth()
-i.SF()
+i.RB()
 
 
 
